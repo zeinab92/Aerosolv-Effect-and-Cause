@@ -37,7 +37,7 @@
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     margin-top: 20%;
-    background: url(/assets/images/grey-side-cans.png);
+    background: url(../assets/images/grey-side-cans.png);
     background-size: cover;
     border-radius: 50%;
     height: 90px;
