@@ -49,15 +49,8 @@ interact('.draggable')
                 $(".draggable").removeAttr('data-y');
                 $(".draggable").css('transform', 'none');
                 $(".draggable").css('transition', 'all 1s');
-                $(".ribbon.expand").addClass("remove-expand");
-                setTimeout(function () {
-                    $(".safari-browser .ribbon.expand").removeClass("remove-expand");
-                    $(".safari-browser .ribbon.expand").removeClass("expand");
-                }, 500);
                 setTimeout(function () {
                     $(".draggable").css('transition', 'opacity 1s');
-                    $(".ribbon.expand").removeClass("remove-expand");
-                    $(".ribbon.expand").removeClass("expand");
                 }, 1400);
             }
         }
@@ -78,16 +71,8 @@ function dragMoveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 
-    //    target.children[1].play();
-    $(".ribbon").addClass("expand");
     target.classList.add("dragging");
-    if ($(".dragging").hasClass("jackhammer-icon")) {
-        $(".parent-span").html("96.0<span style='margin-left:2.5px;'>dBA</span>")
-    } else if ($(".dragging").hasClass("crowd-icon")) {
-        $(".parent-span").html("110.0<span style='margin-left:2.5px;'>dBA</span>")
-    } else if ($(".dragging").hasClass("tractor-icon")) {
-        $(".parent-span").html("102.0<span style='margin-left:2.5px;'>dBA</span>")
-    }
+
 }
 
 // this is used later in the resizing and gesture demos
@@ -96,7 +81,7 @@ window.dragMoveListener = dragMoveListener;
  * applies to this demo as well so it doesn't have to be repeated. */
 
 // enable draggables to be dropped into this
-interact('.dropzone').dropzone({
+interact('.first-dropzone').dropzone({
     // only accept elements matching this CSS selector
     accept: '.drag-drop',
 
@@ -121,89 +106,85 @@ interact('.dropzone').dropzone({
         // remove the drop feedback style
         event.target.classList.remove('drop-target');
         event.relatedTarget.classList.remove('can-drop');
-        $("#myAudio").animate({
-            volume: 1
-        }, 1000);
     },
     ondrop: function (event) {
-        var counter;
-        if (event.relatedTarget.classList.contains("jackhammer-icon")) {
-            var number = 96.0;
-            var decrement = function () {
-                number -= 0.1;
-                $('.parent-span').html(number.toFixed(1) + '<span style="margin-left:2.5px;">dBA</span>');
-                if (number <= 86.1) {
-                    clearInterval(counter);
-                }
-            }
-        }
-        if (event.relatedTarget.classList.contains("crowd-icon")) {
-            var number = 110.0;
-            var decrement = function () {
-                number -= 0.1;
-                $('.parent-span').html(number.toFixed(1) + '<span style="margin-left:2.5px;">dBA</span>');
-                if (number <= 100.1) {
-                    clearInterval(counter);
-                }
-            }
-        }
-        if (event.relatedTarget.classList.contains("tractor-icon")) {
-            var number = 102.0;
-            var decrement = function () {
-                number -= 0.1;
-                $('.parent-span').html(number.toFixed(1) + '<span style="margin-left:2.5px;">dBA</span>');
-                if (number <= 92.1) {
-                    clearInterval(counter);
-                }
-            }
-        }
-        //        $(".can-drop audio").trigger("play");
-        $(".audio").animate({
-            volume: 0.1
-        }, 1000);
-        $(".can-drop").addClass("dropped");
-        $(".box").addClass("drop");
-        $(".box-shadow").addClass("drop");
-        $(".ribbon-wrapper").addClass("drop");
-        $(".ribbon").addClass("expand");
-        $(".expand .parent-span").css("transition", "none");
-        $(".cant-drag").addClass("on");
-        counter = setInterval(decrement, 8);
+        $(".dark-video").trigger("play");
+        $(".draggable").addClass("fade-away");
+        $(".first-dropzone").addClass("fade-away");
+        $(".mid-text").addClass("fade-away");
+        $(".inner-line").addClass("go-up");
         setTimeout(function () {
-            $(".can-drop").removeClass("dropped");
-            $(".can-drop").css("opacity", 0);
-            $(".audio").animate({
-                volume: 0
-            }, 1000);
             $(".can-drop").removeAttr('data-x');
             $(".can-drop").removeAttr('data-y');
-        }, 2500);
-        setTimeout(function () {
-            $(".audio").trigger("pause");
-            $(".box").removeClass("drop");
             $(".can-drop").css("transform", "");
-            $(".box-shadow").removeClass("drop");
-            $(".ribbon-wrapper").removeClass("drop");
-            $(".audio").animate({
-                volume: 1
-            }, 1000);
-        }, 3350);
-        setTimeout(function () {
-            $(".ribbon.expand").addClass("remove-expand");
-            $(".can-drop").css("opacity", 1);
-            $(".drag-drop").removeClass("can-drop");
-        }, 3800);
-
-        setTimeout(function () {
-            $(".parent-span").css("transition", "opacity 0.5s linear 0.5s");
-            $(".ribbon.expand").removeClass("remove-expand");
-            $(".ribbon.expand").removeClass("expand");
-            $(".cant-drag").removeClass("on");
-        }, 4500);
+        }, 2500);
     },
     ondropdeactivate: function (event) {
         // remove active dropzone feedback
         event.target.classList.remove('drop-active');
         event.target.classList.remove('drop-target');
     }
+});
+
+interact('.second-dropzone').dropzone({
+    // only accept elements matching this CSS selector
+    accept: '.drag-drop',
+
+    // Require a 30% element overlap for a drop to be possible
+    overlap: 0.30,
+
+    // listen for drop related events:
+
+    ondropactivate: function (event) {
+        // add active dropzone feedback
+        event.target.classList.add('drop-active');
+    },
+    ondragenter: function (event) {
+        var draggableElement = event.relatedTarget,
+            dropzoneElement = event.target;
+
+        // feedback the possibility of a drop
+        dropzoneElement.classList.add('drop-target');
+        draggableElement.classList.add('can-drop');
+    },
+    ondragleave: function (event) {
+        // remove the drop feedback style
+        event.target.classList.remove('drop-target');
+        event.relatedTarget.classList.remove('can-drop');
+    },
+    ondrop: function (event) {
+        $(".light-video").trigger("play");
+        $(".draggable").addClass("fade-away");
+        $(".second-dropzone").addClass("fade-away");
+        $(".mid-text").addClass("fade-away");
+        $(".inner-line").addClass("go-up");
+        setTimeout(function () {
+            $(".can-drop").removeAttr('data-x');
+            $(".can-drop").removeAttr('data-y');
+            $(".can-drop").css("transform", "");
+        }, 2500);
+    },
+    ondropdeactivate: function (event) {
+        // remove active dropzone feedback
+        event.target.classList.remove('drop-active');
+        event.target.classList.remove('drop-target');
+    }
+});
+
+
+
+$(document).ready(function () {
+    $('video').on('ended', function () {
+        var video = $(this);
+        setTimeout(function () {
+            video.load();
+        }, 1000);
+        $(".inner-line").removeClass("go-up");
+        setTimeout(function () {
+            $(".draggable").removeClass("fade-away");
+            $(".mid-text").removeClass("fade-away");
+            $(".first-dropzone").removeClass("fade-away");
+            $(".second-dropzone").removeClass("fade-away");
+        }, 1500);
+    });
 });

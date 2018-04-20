@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Aerosolv Affect and Cause</title>
+    <title>Aerosolv Effect and Cause</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
@@ -21,21 +21,26 @@
 
 <body>
     <div class="wrapper">
-        <img src="assets/images/aerosolv-title.jpg" style="width: 100%;" />
-        <video id="myAudio" class="video" src="assets/videos/light-side.mp4" loop style="width:450px;height: 653px;"></video>
-<!--
-<div id="yes-drop2" class="draggable drag-drop jackhammer-icon">
-    <img src="assets/images/purple-middle-can.jpg" />
-</div>
--->
-<!--
-<div class="inner-wrapper">
-    <div id="outer-dropzone" class="dropzone">
-    </div>
-</div>
--->
+        <img src="assets/images/aerosolv-title.jpg" style="width: 100%;z-index:9;margin-bottom: -55px;position: relative;border:1px solid #ccc;border-bottom: 0;z-index: 999;" />
+        <div class="vids">
+            <video id="myAudio" class="video dark-video" id="dark-vid" src="assets/videos/dark-side.mp4"></video>
+            <video id="myAudio" class="video light-video" src="assets/videos/light-side.mp4"></video>
+        </div>
 
-        <div class="cant-drag"></div>
+        <div id="yes-drop2" class="draggable drag-drop">
+            <img src="assets/images/purple-middle-can.png" style="width:100%;" />
+        </div>
+
+        <img src="assets/images/middle-text.png" class="mid-text" />
+
+        <div class="inner-wrapper">
+            <div id="outer-dropzone" class="dropzone first-dropzone"></div>
+            <div id="outer-dropzone" class="dropzone second-dropzone"></div>
+        </div>
+
+        <div class="white-line">
+            <div class="inner-line"></div>
+        </div>
     </div>
     <p class="no-sup-msg" style="text-align: center;">Your browser does not support this Soundex Interactive Animation. Please update or use another browser.</p>
 
