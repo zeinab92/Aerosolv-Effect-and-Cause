@@ -179,12 +179,14 @@ $(document).ready(function () {
         setTimeout(function () {
             video.load();
         }, 1000);
-        $(".inner-line").removeClass("go-up");
+        setTimeout(function () {
+            $(".inner-line").removeClass("go-up");
+        }, 2000);
         setTimeout(function () {
             $(".draggable").removeClass("fade-away");
             $(".mid-text").removeClass("fade-away");
             $(".first-dropzone").removeClass("fade-away");
             $(".second-dropzone").removeClass("fade-away");
-        }, 1500);
+        }, 3000);
     });
 });
