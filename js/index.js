@@ -174,19 +174,58 @@ interact('.second-dropzone').dropzone({
 
 
 $(document).ready(function () {
-    $('video').on('ended', function () {
-        var video = $(this);
-        setTimeout(function () {
-            video.load();
-        }, 1000);
-        setTimeout(function () {
-            $(".inner-line").removeClass("go-up");
-        }, 2000);
-        setTimeout(function () {
-            $(".draggable").removeClass("fade-away");
-            $(".mid-text").removeClass("fade-away");
-            $(".first-dropzone").removeClass("fade-away");
-            $(".second-dropzone").removeClass("fade-away");
-        }, 3000);
-    });
+    //    $('video').on('ended', function () {
+    //        var intervalRewind;
+    //        var video = $(this);
+    //        setTimeout(function () {
+    //            intervalRewind = setInterval(function () {
+    //                video.playbackRate = 1.0;
+    //                if (video.currentTime == 0) {
+    //                    clearInterval(intervalRewind);
+    //                    video.pause();
+    //                } else {
+    //                    video.currentTime += -0.5;
+    //                }
+    //            }, 30);
+    //        }, 1000);
+    //        setTimeout(function () {
+    //            $(".inner-line").removeClass("go-up");
+    //        }, 2000);
+    //        setTimeout(function () {
+    //            $(".draggable").removeClass("fade-away");
+    //            $(".mid-text").removeClass("fade-away");
+    //            $(".first-dropzone").removeClass("fade-away");
+    //            $(".second-dropzone").removeClass("fade-away");
+    //        }, 3000);
+    //    });
+    //    var intervalRewind;
+    //    $("video").on("ended", function () {
+    //        setTimeout(function () {
+    //            intervalRewind = setInterval(function () {
+    //                $(this).playbackRate = 1.0;
+    //                if ($(this).currentTime == 0) {
+    //                    clearInterval(intervalRewind);
+    //                    $(this).pause();
+    //                } else {
+    //                    $(this).currentTime += -0.5;
+    //                }
+    //            }, 30);
+    //        }, 1000);
+    //    });
+
+});
+
+$("video").on("ended", function () {
+    var video = document.getElementById('video');
+    setTimeout(function () {
+        intervalRewind = setInterval(function () {
+            video.playbackRate = 1.0;
+            if (video.currentTime == 0) {
+                clearInterval(intervalRewind);
+                video.pause();
+            } else {
+                video.currentTime += -0.5;
+            }
+        }, 30);
+    }, 1000);
 });
