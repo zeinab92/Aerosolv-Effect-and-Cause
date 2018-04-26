@@ -57,8 +57,8 @@
 }
 
 #outer-dropzone.drop-target {
-    -webkit-box-shadow: 0px 0px 60px 25px #FFF;
-    box-shadow: 0px 0px 60px 25px #FFF;
+    -webkit-box-shadow: 0px 0px 60px 5px #673368;
+    box-shadow: 0px 0px 50px 5px #673368;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
@@ -69,9 +69,9 @@
     margin: auto;
     top: 30%;
     position: absolute;
-    -webkit-transition: opacity 1s;
-    transition: opacity 1s;
-    width: 13%;
+    -webkit-transition: opacity 1s, width 0.1s;
+    transition: opacity 1s, width 0.1s;
+    width: 15%;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -131,8 +131,8 @@
 
 .fade-away {
     opacity: 0;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
 }
 
 .go-up {

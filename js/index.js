@@ -49,6 +49,7 @@ interact('.draggable')
                 $(".draggable").removeAttr('data-y');
                 $(".draggable").css('transform', 'none');
                 $(".draggable").css('transition', 'all 1s');
+                $(".draggable").css('width', '15%');
                 setTimeout(function () {
                     $(".draggable").css('transition', 'opacity 1s');
                 }, 1400);
@@ -72,6 +73,101 @@ function dragMoveListener(event) {
     target.setAttribute('data-y', y);
 
     target.classList.add("dragging");
+
+    console.log(x);
+
+    if ((x < -10) || (x > 10)) {
+        target.style.width = "14.75%";
+    }
+
+    if ((x < -20) || (x > 20)) {
+        target.style.width = "14.5%";
+    }
+
+    if ((x < -30) || (x > 30)) {
+        target.style.width = "14.25%";
+    }
+
+    if ((x < -40) || (x > 40)) {
+        target.style.width = "14%";
+    }
+
+    if ((x < -50) || (x > 50)) {
+        target.style.width = "13.75%";
+    }
+
+    if ((x < -60) || (x > 60)) {
+        target.style.width = "13.5%";
+    }
+
+    if ((x < -70) || (x > 70)) {
+        target.style.width = "13.25%";
+    }
+
+    if ((x < -80) || (x > 80)) {
+        target.style.width = "13%";
+    }
+
+    if ((x < -90) || (x > 90)) {
+        target.style.width = "12.75%";
+    }
+
+    if ((x < -100) || (x > 100)) {
+        target.style.width = "12.5%";
+    }
+
+    if ((x < -110) || (x > 110)) {
+        target.style.width = "12.25%";
+    }
+
+    if ((x < -120) || (x > 120)) {
+        target.style.width = "12%";
+    }
+
+    if ((x < -130) || (x > 130)) {
+        target.style.width = "11.75%";
+    }
+
+    if ((x < -140) || (x > 140)) {
+        target.style.width = "11.5%";
+    }
+
+    if ((x < -150) || (x > 150)) {
+        target.style.width = "11.25%";
+    }
+
+    if ((x < -160) || (x > 160)) {
+        target.style.width = "11%";
+    }
+
+    if ((x < -170) || (x > 170)) {
+        target.style.width = "10.75%";
+    }
+
+    if ((x < -180) || (x > 180)) {
+        target.style.width = "10.5%";
+    }
+
+    if ((x < -190) || (x > 190)) {
+        target.style.width = "10.25%";
+    }
+
+    if ((x < -200) || (x > 200)) {
+        target.style.width = "10%";
+    }
+
+    if ((x < -210) || (x > 210)) {
+        target.style.width = "9.75%";
+    }
+
+    if ((x < -220) || (x > 220)) {
+        target.style.width = "9.5%";
+    }
+
+    if ((x < -230) || (x > 230)) {
+        target.style.width = "9.25%";
+    }
+
 
 }
 
@@ -108,11 +204,13 @@ interact('.first-dropzone').dropzone({
         event.relatedTarget.classList.remove('can-drop');
     },
     ondrop: function (event) {
-        $(".dark-video").trigger("play");
-        $(".draggable").addClass("fade-away");
-        $(".first-dropzone").addClass("fade-away");
-        $(".mid-text").addClass("fade-away");
-        $(".inner-line").addClass("go-up");
+        setTimeout(function () {
+            $(".dark-video").trigger("play");
+            $(".draggable").addClass("fade-away");
+            $(".first-dropzone").addClass("fade-away");
+            $(".mid-text").addClass("fade-away");
+            $(".inner-line").addClass("go-up");
+        }, 200);
         setTimeout(function () {
             $(".can-drop").removeAttr('data-x');
             $(".can-drop").removeAttr('data-y');
@@ -172,60 +270,79 @@ interact('.second-dropzone').dropzone({
 });
 
 
-
-$(document).ready(function () {
-    //    $('video').on('ended', function () {
-    //        var intervalRewind;
-    //        var video = $(this);
-    //        setTimeout(function () {
-    //            intervalRewind = setInterval(function () {
-    //                video.playbackRate = 1.0;
-    //                if (video.currentTime == 0) {
-    //                    clearInterval(intervalRewind);
-    //                    video.pause();
-    //                } else {
-    //                    video.currentTime += -0.5;
-    //                }
-    //            }, 30);
-    //        }, 1000);
-    //        setTimeout(function () {
-    //            $(".inner-line").removeClass("go-up");
-    //        }, 2000);
-    //        setTimeout(function () {
-    //            $(".draggable").removeClass("fade-away");
-    //            $(".mid-text").removeClass("fade-away");
-    //            $(".first-dropzone").removeClass("fade-away");
-    //            $(".second-dropzone").removeClass("fade-away");
-    //        }, 3000);
-    //    });
-    //    var intervalRewind;
-    //    $("video").on("ended", function () {
-    //        setTimeout(function () {
-    //            intervalRewind = setInterval(function () {
-    //                $(this).playbackRate = 1.0;
-    //                if ($(this).currentTime == 0) {
-    //                    clearInterval(intervalRewind);
-    //                    $(this).pause();
-    //                } else {
-    //                    $(this).currentTime += -0.5;
-    //                }
-    //            }, 30);
-    //        }, 1000);
-    //    });
-
-});
-
-$("video").on("ended", function () {
+$("video.dark-video").on("ended", function () {
     var video = document.getElementById('video');
     setTimeout(function () {
         intervalRewind = setInterval(function () {
-            video.playbackRate = 1.0;
             if (video.currentTime == 0) {
                 clearInterval(intervalRewind);
                 video.pause();
             } else {
                 video.currentTime += -0.5;
+                if (video.currentTime == 0) {
+                    clearInterval(intervalRewind);
+                    video.pause();
+                } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
+                    clearInterval(intervalRewind);
+                    intervalRewind = setInterval(function () {
+                        video.currentTime += -0.05;
+                        if (video.currentTime == 0) {
+                            clearInterval(intervalRewind);
+                            video.pause();
+                        }
+                    }, 30);
+                }
             }
         }, 30);
-    }, 1000);
+    }, 500);
+    setTimeout(function () {
+        $(".inner-line").removeClass("go-up");
+        $(".first-dropzone").removeClass("fade-away");
+        $(".second-dropzone").removeClass("fade-away");
+    }, 5000);
+    setTimeout(function () {
+        $(".draggable").removeClass("fade-away");
+        $(".mid-text").removeClass("fade-away");
+    }, 6000);
 });
+
+$("video.light-video").on("ended", function () {
+    var video = document.getElementById('video-green');
+    setTimeout(function () {
+        intervalRewind = setInterval(function () {
+            if (video.currentTime == 0) {
+                clearInterval(intervalRewind);
+                video.pause();
+            } else {
+                video.currentTime += -0.5;
+                if (video.currentTime == 0) {
+                    clearInterval(intervalRewind);
+                    video.pause();
+                } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
+                    clearInterval(intervalRewind);
+                    intervalRewind = setInterval(function () {
+                        video.currentTime += -0.05;
+                        if (video.currentTime == 0) {
+                            clearInterval(intervalRewind);
+                            video.pause();
+                        }
+                    }, 30);
+                }
+            }
+        }, 30);
+    }, 500);
+    setTimeout(function () {
+        $(".inner-line").removeClass("go-up");
+        $(".first-dropzone").removeClass("fade-away");
+        $(".second-dropzone").removeClass("fade-away");
+    }, 5000);
+    setTimeout(function () {
+        $(".draggable").removeClass("fade-away");
+        $(".mid-text").removeClass("fade-away");
+    }, 6000);
+});
+
+
+//$(".drag-drop").click(function () {
+//    $(this).css("width", "9%");
+//});
