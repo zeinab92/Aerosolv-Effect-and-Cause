@@ -74,7 +74,7 @@ function dragMoveListener(event) {
 
     target.classList.add("dragging");
 
-    console.log(x);
+    //    console.log(x);
 
     if ((x < -10) || (x > 10)) {
         target.style.width = "14.75%";
@@ -272,33 +272,33 @@ interact('.second-dropzone').dropzone({
 
 $("video.dark-video").on("ended", function () {
     var video = document.getElementById('video');
-    setTimeout(function () {
-        intervalRewind = setInterval(function () {
+    $("audio").trigger("play");
+    intervalRewind = setInterval(function () {
+        if (video.currentTime == 0) {
+            clearInterval(intervalRewind);
+            video.pause();
+        } else {
+            video.currentTime += -0.5;
             if (video.currentTime == 0) {
                 clearInterval(intervalRewind);
                 video.pause();
-            } else {
-                video.currentTime += -0.5;
-                if (video.currentTime == 0) {
-                    clearInterval(intervalRewind);
-                    video.pause();
-                } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
-                    clearInterval(intervalRewind);
-                    intervalRewind = setInterval(function () {
-                        video.currentTime += -0.05;
-                        if (video.currentTime == 0) {
-                            clearInterval(intervalRewind);
-                            video.pause();
-                        }
-                    }, 30);
-                }
+            } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
+                clearInterval(intervalRewind);
+                intervalRewind = setInterval(function () {
+                    video.currentTime += -0.05;
+                    if (video.currentTime == 0) {
+                        clearInterval(intervalRewind);
+                        video.pause();
+                    }
+                }, 30);
             }
-        }, 30);
-    }, 500);
+        }
+    }, 30);
     setTimeout(function () {
         $(".inner-line").removeClass("go-up");
         $(".first-dropzone").removeClass("fade-away");
         $(".second-dropzone").removeClass("fade-away");
+        $("audio").trigger("pause");
     }, 5000);
     setTimeout(function () {
         $(".draggable").removeClass("fade-away");
@@ -308,29 +308,29 @@ $("video.dark-video").on("ended", function () {
 
 $("video.light-video").on("ended", function () {
     var video = document.getElementById('video-green');
-    setTimeout(function () {
-        intervalRewind = setInterval(function () {
+    //    setTimeout(function () {
+    intervalRewind = setInterval(function () {
+        if (video.currentTime == 0) {
+            clearInterval(intervalRewind);
+            video.pause();
+        } else {
+            video.currentTime += -0.5;
             if (video.currentTime == 0) {
                 clearInterval(intervalRewind);
                 video.pause();
-            } else {
-                video.currentTime += -0.5;
-                if (video.currentTime == 0) {
-                    clearInterval(intervalRewind);
-                    video.pause();
-                } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
-                    clearInterval(intervalRewind);
-                    intervalRewind = setInterval(function () {
-                        video.currentTime += -0.05;
-                        if (video.currentTime == 0) {
-                            clearInterval(intervalRewind);
-                            video.pause();
-                        }
-                    }, 30);
-                }
+            } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
+                clearInterval(intervalRewind);
+                intervalRewind = setInterval(function () {
+                    video.currentTime += -0.05;
+                    if (video.currentTime == 0) {
+                        clearInterval(intervalRewind);
+                        video.pause();
+                    }
+                }, 30);
             }
-        }, 30);
-    }, 500);
+        }
+    }, 30);
+    //    }, 500);
     setTimeout(function () {
         $(".inner-line").removeClass("go-up");
         $(".first-dropzone").removeClass("fade-away");
