@@ -119,7 +119,7 @@
 }
 
 .inner-line.bg-line {
-    background: url(/assets/images/line-bg.png);
+    background: url(../assets/images/line-bg.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
