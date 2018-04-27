@@ -118,6 +118,15 @@
     overflow: hidden;
 }
 
+.inner-line.bg-line {
+    background: url(/assets/images/line-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    top: 12.5%;
+    height: 16%;
+}
+
 .inner-line {
     background: #333;
     width: 100%;
