@@ -1,21 +1,3 @@
-//if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
-//    //If Safari Browser
-//    $(".draggable").on("vmousedown", function () {
-//        //        $(this).children(".audio").trigger("play");
-//    });
-//
-//    $(".draggable").on("vmouseup", function () {
-//        //        $(this).children(".audio").trigger("pause");
-//    });
-//
-//    $(".wrapper").addClass("safari-browser");
-//} else {
-//    //Do the normal audio triggering in all other browsers
-//}
-//if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-//    $(".wrapper").css("display", "none");
-//}
-
 // target elements with the "draggable" class
 interact('.draggable')
     .draggable({
@@ -38,7 +20,6 @@ interact('.draggable')
         // call this function on every dragend event
         onend: function (event) {
             event.target.classList.remove("dragging");
-            //            $(".audio").trigger("pause");
 
             if ($(".draggable").hasClass("can-drop")) {
                 //Don't snap icon back because it was dropped into drop zone
@@ -260,6 +241,7 @@ interact('.second-dropzone').dropzone({
             $(".can-drop").removeAttr('data-x');
             $(".can-drop").removeAttr('data-y');
             $(".can-drop").css("transform", "");
+            $(".draggable").css('width', '15%');
         }, 2500);
     },
     ondropdeactivate: function (event) {
@@ -270,74 +252,52 @@ interact('.second-dropzone').dropzone({
 });
 
 
-$("video.dark-video").on("ended", function () {
-    var video = document.getElementById('video');
-    $("audio").trigger("play");
-    intervalRewind = setInterval(function () {
-        if (video.currentTime == 0) {
-            clearInterval(intervalRewind);
-            video.pause();
-        } else {
-            video.currentTime += -0.5;
-            if (video.currentTime == 0) {
-                clearInterval(intervalRewind);
-                video.pause();
-            } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
-                clearInterval(intervalRewind);
-                intervalRewind = setInterval(function () {
-                    video.currentTime += -0.05;
-                    if (video.currentTime == 0) {
-                        clearInterval(intervalRewind);
-                        video.pause();
-                    }
-                }, 30);
-            }
-        }
-    }, 30);
-    setTimeout(function () {
-        $(".inner-line").removeClass("go-up");
-        $(".first-dropzone").removeClass("fade-away");
-        $(".second-dropzone").removeClass("fade-away");
-        $("audio").trigger("pause");
-    }, 5000);
-    setTimeout(function () {
-        $(".draggable").removeClass("fade-away");
-        $(".mid-text").removeClass("fade-away");
-    }, 6000);
-});
+//$("video.dark-video").on("ended", function () {
+//    var video = document.getElementById('video');
+//    intervalRewind = setInterval(function () {
+//        if (video.currentTime == 0) {
+//            clearInterval(intervalRewind);
+//            video.pause();
+//        } else {
+//            video.currentTime += -0.5;
+//            if (video.currentTime == 0) {
+//                clearInterval(intervalRewind);
+//                video.pause();
+//            } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
+//                clearInterval(intervalRewind);
+//                intervalRewind = setInterval(function () {
+//                    video.currentTime += -0.05;
+//                    if (video.currentTime == 0) {
+//                        clearInterval(intervalRewind);
+//                        video.pause();
+//                    }
+//                }, 30);
+//            }
+//        }
+//    }, 30);
+//    setTimeout(function () {
+//        $(".inner-line").removeClass("go-up");
+//        $(".first-dropzone").removeClass("fade-away");
+//        $(".second-dropzone").removeClass("fade-away");
+//    }, 5000);
+//    setTimeout(function () {
+//        $(".draggable").removeClass("fade-away");
+//        $(".mid-text").removeClass("fade-away");
+//    }, 6000);
+//});
 
-$("video.light-video").on("ended", function () {
-    var video = document.getElementById('video-green');
-    $("audio").trigger("play");
-    intervalRewind = setInterval(function () {
-        if (video.currentTime == 0) {
-            clearInterval(intervalRewind);
-            video.pause();
-        } else {
-            video.currentTime += -0.5;
-            if (video.currentTime == 0) {
-                clearInterval(intervalRewind);
-                video.pause();
-            } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
-                clearInterval(intervalRewind);
-                intervalRewind = setInterval(function () {
-                    video.currentTime += -0.05;
-                    if (video.currentTime == 0) {
-                        clearInterval(intervalRewind);
-                        video.pause();
-                    }
-                }, 30);
-            }
-        }
-    }, 30);
+$("video").on("ended", function () {
+    var video = $(this);
+    setTimeout(function () {
+        video.load();
+    }, 500);
     setTimeout(function () {
         $(".inner-line").removeClass("go-up");
-        $(".first-dropzone").removeClass("fade-away");
-        $(".second-dropzone").removeClass("fade-away");
-        $("audio").trigger("pause");
-    }, 5000);
+    }, 1000);
     setTimeout(function () {
         $(".draggable").removeClass("fade-away");
         $(".mid-text").removeClass("fade-away");
-    }, 6000);
+        $(".first-dropzone").removeClass("fade-away");
+        $(".second-dropzone").removeClass("fade-away");
+    }, 2000);
 });
