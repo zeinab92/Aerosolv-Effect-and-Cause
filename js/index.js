@@ -252,52 +252,27 @@ interact('.second-dropzone').dropzone({
 });
 
 
-//$("video.dark-video").on("ended", function () {
-//    var video = document.getElementById('video');
-//    intervalRewind = setInterval(function () {
-//        if (video.currentTime == 0) {
-//            clearInterval(intervalRewind);
-//            video.pause();
-//        } else {
-//            video.currentTime += -0.5;
-//            if (video.currentTime == 0) {
-//                clearInterval(intervalRewind);
-//                video.pause();
-//            } else if ((video.currentTime) < 5 && (video.currentTime) > 0.0) {
-//                clearInterval(intervalRewind);
-//                intervalRewind = setInterval(function () {
-//                    video.currentTime += -0.05;
-//                    if (video.currentTime == 0) {
-//                        clearInterval(intervalRewind);
-//                        video.pause();
-//                    }
-//                }, 30);
-//            }
-//        }
-//    }, 30);
-//    setTimeout(function () {
-//        $(".inner-line").removeClass("go-up");
-//        $(".first-dropzone").removeClass("fade-away");
-//        $(".second-dropzone").removeClass("fade-away");
-//    }, 5000);
-//    setTimeout(function () {
-//        $(".draggable").removeClass("fade-away");
-//        $(".mid-text").removeClass("fade-away");
-//    }, 6000);
-//});
-
 $("video").on("ended", function () {
     var video = $(this);
     setTimeout(function () {
-        video.load();
+        $(".CTA").css("visibility", "visible");
+    }, 500);
+    setTimeout(function () {
+        $(".CTA").addClass("show");
+    }, 800);
+});
+
+$(".CTA a").click(function () {
+    setTimeout(function () {
+        $("video").load();
+        $(".CTA").css("visibility", "hidden");
     }, 500);
     setTimeout(function () {
         $(".inner-line").removeClass("go-up");
-    }, 1000);
-    setTimeout(function () {
         $(".draggable").removeClass("fade-away");
         $(".mid-text").removeClass("fade-away");
         $(".first-dropzone").removeClass("fade-away");
         $(".second-dropzone").removeClass("fade-away");
-    }, 2000);
+        $(".CTA").removeClass("show");
+    }, 800);
 });
