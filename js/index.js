@@ -260,11 +260,24 @@ $("video").on("ended", function () {
     setTimeout(function () {
         $(".CTA").addClass("show");
     }, 800);
+    setTimeout(function () {
+        $(".inner-line").removeClass("go-up");
+        $(".draggable").removeClass("fade-away");
+        $(".mid-text").removeClass("fade-away");
+        $(".first-dropzone").removeClass("fade-away");
+        $(".second-dropzone").removeClass("fade-away");
+        $("video").load();
+    }, 3000);
+    setTimeout(function () {
+        $(".CTA").removeClass("show");
+    }, 10000);
+    setTimeout(function () {
+        $(".CTA").css("visibility", "hidden");
+    }, 10500);
 });
 
 $(".CTA a").click(function () {
     setTimeout(function () {
-        $("video").load();
         $(".CTA").css("visibility", "hidden");
     }, 500);
     setTimeout(function () {
