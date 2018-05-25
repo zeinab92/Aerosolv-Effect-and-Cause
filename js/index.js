@@ -264,14 +264,14 @@ interact('.second-dropzone').dropzone({
 
 $("video").on("ended", function () {
     var video = $(this);
-    setTimeout(function () {
-        $(".CTA").css("visibility", "visible");
-    }, 500);
+    //    setTimeout(function () {
+    $(".CTA").css("visibility", "visible");
+    //    }, 500);
     setTimeout(function () {
         $(".vids .sides").removeClass("show");
         $(".vids .sides").removeClass("visible");
         $(".CTA").addClass("show");
-    }, 800);
+    }, 50);
     setTimeout(function () {
         $(".inner-line").removeClass("go-up");
         $(".draggable").removeClass("fade-away");
