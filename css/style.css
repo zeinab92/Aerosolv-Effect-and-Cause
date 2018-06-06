@@ -187,7 +187,7 @@ img {
     z-index: 99999;
     -webkit-transition: all 1s linear;
     transition: all 1s linear;
-    display: none;
+    /*    display: none;*/
 }
 
 .second-scene {
