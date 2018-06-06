@@ -22,7 +22,65 @@
 
 <body>
     <div class="wrapper">
-        <img src="assets/images/aerosolv-title.jpg" style="width: 100%;z-index:9;margin-bottom: -55px;position: relative;border:1px solid #ccc;border-bottom: 0;z-index: 999999;" />
+        <div class="backup-scene">
+            <img src="new-assets/back-page.png" style="width: 100%;" />
+            <div class="buttons tk-proxima-nova">
+                <a target="_blank" href="https://www.aerosolv.com/aerosol-puncture-device">BUY NOW</a><br><a href="#" onclick="window.location.reload(true);">REPLAY</a>
+            </div>
+        </div>
+        <div class="first-scene">
+            <img src="new-assets/front-page.png" style="width:100%;" />
+            <div class="vids">
+                <video id="video" class="video dark-video">
+                    <source src="new-assets/left-corner.mp4" type="video/mp4">
+                </video>
+                <video id="video-green" class="video light-video" style="z-index:9;">
+                    <source src="new-assets/right-corner.mp4" type="video/mp4">
+                </video>
+                <div class="lines">
+                    <div class="horizontal-top-line"></div>
+                    <div class="right-line"></div>
+                </div>
+
+                <div id="yes-drop" class="draggable drag-drop">
+                    <img src="assets/images/purple-middle-can.png" style="width:100%;" />
+                </div>
+
+                <div class="inner-wrapper">
+                    <div id="outer-dropzone" class="dropzone first-dropzone"></div>
+                    <div id="outer-dropzone" class="dropzone second-dropzone"></div>
+                </div>
+            </div>
+        </div>
+        <div class="second-scene">
+            <div class="second-scene-header">
+                <img src="new-assets/mid-page-background.png" />
+                <div class="icons">
+                    <div id="yes-drop" class="draggable drag-drop">
+                        <img src="assets/images/purple-middle-can.png" style="width:100%;" />
+                    </div>
+
+                    <div class="inner-wrapper">
+                        <div id="outer-dropzone" class="dropzone trash-dropzone">
+                            <img src="new-assets/mid-page-dumpster.png" />
+                        </div>
+                        <div id="outer-dropzone" class="dropzone system-dropzone">
+                            <img src="new-assets/mid-page-360.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="videos">
+                <video id="video-red-inner" class="inner-video">
+                    <source src="new-assets/left-big-corner.mp4" type="video/mp4">
+                </video>
+                <video id="video-green-inner" class="inner-video">
+                    <source src="new-assets/right-big-corner.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <!--        <img src="assets/images/aerosolv-title.jpg" style="width: 100%;z-index:9;margin-bottom: -55px;position: relative;border:1px solid #ccc;border-bottom: 0;z-index: 999999;" />-->
+        <!--
         <div class="vids">
             <video id="video" class="video dark-video">
                 <source src="assets/videos/Red-Side5.mp4" type="video/mp4">
@@ -50,28 +108,16 @@
             </div>
 
         </div>
+-->
 
-        <div id="yes-drop2" class="draggable drag-drop">
-            <img src="assets/images/purple-middle-can.png" style="width:100%;" />
-        </div>
 
-        <img src="assets/images/middle-text.png" class="mid-text" />
-
-        <div class="inner-wrapper">
-            <div id="outer-dropzone" class="dropzone first-dropzone"></div>
-            <div id="outer-dropzone" class="dropzone second-dropzone"></div>
-        </div>
-
-        <div class="white-line">
-            <div class="inner-line bg-line"></div>
-            <div class="inner-line"></div>
-        </div>
-
-        <div class="CTA">
-            <img class="CTA-bg" src="assets/images/To-call-page.jpg" />
-            <p class="tk-proxima-nova">Want to learn more?</p>
-            <a target="_blank" href="https://www.aerosolv.com/aerosol-puncture-device" class="tk-proxima-nova">CLICK HERE</a>
-        </div>
+        <!--
+<div class="CTA">
+    <img class="CTA-bg" src="assets/images/To-call-page.jpg" />
+    <p class="tk-proxima-nova">Want to learn more?</p>
+    <a target="_blank" href="https://www.aerosolv.com/aerosol-puncture-device" class="tk-proxima-nova">CLICK HERE</a>
+</div>
+-->
     </div>
     <p class="no-sup-msg" style="text-align: center;">Your browser does not support this Aerosolv Interactive Animation. Please update or use another browser.</p>
 

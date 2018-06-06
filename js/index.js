@@ -29,7 +29,7 @@ interact('.draggable')
                 $(".draggable").removeAttr('data-y');
                 $(".draggable").css('transform', 'none');
                 $(".draggable").css('transition', 'all 1s');
-                $(".draggable").css('width', '15%');
+                $(".draggable").css('width', '25%');
                 setTimeout(function () {
                     $(".draggable").css('transition', 'opacity 1s');
                 }, 1400);
@@ -54,42 +54,41 @@ function dragMoveListener(event) {
 
     target.classList.add("dragging");
 
-    //    console.log(x);
 
     if ((x < -10) || (x > 10)) {
-        target.style.width = "14.75%";
+        target.style.width = "26%";
     }
 
     if ((x < -20) || (x > 20)) {
-        target.style.width = "14.5%";
+        target.style.width = "24%";
     }
 
     if ((x < -30) || (x > 30)) {
-        target.style.width = "14.25%";
+        target.style.width = "22%";
     }
 
     if ((x < -40) || (x > 40)) {
-        target.style.width = "14%";
+        target.style.width = "20%";
     }
 
     if ((x < -50) || (x > 50)) {
-        target.style.width = "13.75%";
+        target.style.width = "18%";
     }
 
     if ((x < -60) || (x > 60)) {
-        target.style.width = "13.5%";
+        target.style.width = "16%";
     }
 
     if ((x < -70) || (x > 70)) {
-        target.style.width = "13.25%";
+        target.style.width = "14%";
     }
 
     if ((x < -80) || (x > 80)) {
-        target.style.width = "13%";
+        target.style.width = "13.5%";
     }
 
     if ((x < -90) || (x > 90)) {
-        target.style.width = "12.75%";
+        target.style.width = "13%";
     }
 
     if ((x < -100) || (x > 100)) {
@@ -97,58 +96,8 @@ function dragMoveListener(event) {
     }
 
     if ((x < -110) || (x > 110)) {
-        target.style.width = "12.25%";
-    }
-
-    if ((x < -120) || (x > 120)) {
         target.style.width = "12%";
     }
-
-    if ((x < -130) || (x > 130)) {
-        target.style.width = "11.75%";
-    }
-
-    if ((x < -140) || (x > 140)) {
-        target.style.width = "11.5%";
-    }
-
-    if ((x < -150) || (x > 150)) {
-        target.style.width = "11.25%";
-    }
-
-    if ((x < -160) || (x > 160)) {
-        target.style.width = "11%";
-    }
-
-    if ((x < -170) || (x > 170)) {
-        target.style.width = "10.75%";
-    }
-
-    if ((x < -180) || (x > 180)) {
-        target.style.width = "10.5%";
-    }
-
-    if ((x < -190) || (x > 190)) {
-        target.style.width = "10.25%";
-    }
-
-    if ((x < -200) || (x > 200)) {
-        target.style.width = "10%";
-    }
-
-    if ((x < -210) || (x > 210)) {
-        target.style.width = "9.75%";
-    }
-
-    if ((x < -220) || (x > 220)) {
-        target.style.width = "9.5%";
-    }
-
-    if ((x < -230) || (x > 230)) {
-        target.style.width = "9.25%";
-    }
-
-
 }
 
 // this is used later in the resizing and gesture demos
@@ -184,23 +133,16 @@ interact('.first-dropzone').dropzone({
         event.relatedTarget.classList.remove('can-drop');
     },
     ondrop: function (event) {
-        setTimeout(function () {
-            $(".dark-video").trigger("play");
-            $(".draggable").addClass("fade-away");
-            $(".first-dropzone").addClass("fade-away");
-            $(".second-dropzone").addClass("fade-away");
-            $(".mid-text").addClass("fade-away");
-            $(".inner-line").addClass("go-up");
-            $(".right-side-pic").addClass("visible");
-        }, 200);
-        setTimeout(function () {
-            $(".right-side-pic").addClass("show");
-        }, 300);
+        $(".dark-video").trigger("play");
+        $(".light-video").addClass("gray-out");
+        $(".first-scene .draggable").addClass("fade-away");
+        $(".first-dropzone").addClass("fade-away");
+        $(".second-dropzone").addClass("fade-away");
         setTimeout(function () {
             $(".can-drop").removeAttr('data-x');
             $(".can-drop").removeAttr('data-y');
             $(".can-drop").css("transform", "");
-            $(".draggable").css('width', '15%');
+            $(".first-scene .draggable").css('width', '25%');
         }, 2500);
     },
     ondropdeactivate: function (event) {
@@ -238,20 +180,15 @@ interact('.second-dropzone').dropzone({
     },
     ondrop: function (event) {
         $(".light-video").trigger("play");
-        $(".draggable").addClass("fade-away");
+        $(".first-scene .draggable").addClass("fade-away");
         $(".second-dropzone").addClass("fade-away");
         $(".first-dropzone").addClass("fade-away");
-        $(".mid-text").addClass("fade-away");
-        $(".inner-line").addClass("go-up");
-        $(".left-side-pic").addClass("visible");
-        setTimeout(function () {
-            $(".left-side-pic").addClass("show");
-        }, 300);
+        $(".dark-video").addClass("gray-out");
         setTimeout(function () {
             $(".can-drop").removeAttr('data-x');
             $(".can-drop").removeAttr('data-y');
             $(".can-drop").css("transform", "");
-            $(".draggable").css('width', '15%');
+            $(".first-scene .draggable").css('width', '25%');
         }, 2500);
     },
     ondropdeactivate: function (event) {
@@ -262,80 +199,114 @@ interact('.second-dropzone').dropzone({
 });
 
 
-$("video").on("ended", function () {
-    var video = $(this);
-    //    setTimeout(function () {
-    $(".CTA").css("visibility", "visible");
-    //    }, 500);
-    setTimeout(function () {
-        $(".vids .sides").removeClass("show");
-        $(".vids .sides").removeClass("visible");
-        $(".CTA").addClass("show");
-    }, 50);
-    setTimeout(function () {
-        $(".inner-line").removeClass("go-up");
-        $(".draggable").removeClass("fade-away");
-        $(".mid-text").removeClass("fade-away");
-        $(".first-dropzone").removeClass("fade-away");
-        $(".second-dropzone").removeClass("fade-away");
-    }, 3000);
-    setTimeout(function () {
-        //                $("video").load();
-    }, 6000);
-    setTimeout(function () {
-        $("video").load();
-        $(".CTA").removeClass("show");
-    }, 10000);
-    setTimeout(function () {
-        $(".CTA").css("visibility", "hidden");
-    }, 10500);
+
+interact('.trash-dropzone').dropzone({
+    // only accept elements matching this CSS selector
+    accept: '.drag-drop',
+
+    // Require a 30% element overlap for a drop to be possible
+    overlap: 0.30,
+
+    // listen for drop related events:
+
+    ondropactivate: function (event) {
+        // add active dropzone feedback
+        event.target.classList.add('drop-active');
+    },
+    ondragenter: function (event) {
+        var draggableElement = event.relatedTarget,
+            dropzoneElement = event.target;
+
+        // feedback the possibility of a drop
+        dropzoneElement.classList.add('drop-target');
+        draggableElement.classList.add('can-drop');
+    },
+    ondragleave: function (event) {
+        // remove the drop feedback style
+        event.target.classList.remove('drop-target');
+        event.relatedTarget.classList.remove('can-drop');
+    },
+    ondrop: function (event) {
+        $("#video-green-inner").trigger("pause");
+        $("#video-green-inner").removeClass("chosen");
+        $("#video-red-inner").addClass("chosen");
+        $("#video-red-inner").trigger("play");
+        $("#video-green-inner").load();
+        $(".can-drop").removeAttr('data-x');
+        $(".can-drop").removeAttr('data-y');
+        $(".can-drop").css("transform", "");
+    },
+    ondropdeactivate: function (event) {
+        // remove active dropzone feedback
+        event.target.classList.remove('drop-active');
+        event.target.classList.remove('drop-target');
+    }
+});
+interact('.system-dropzone').dropzone({
+    // only accept elements matching this CSS selector
+    accept: '.drag-drop',
+
+    // Require a 30% element overlap for a drop to be possible
+    overlap: 0.30,
+
+    // listen for drop related events:
+
+    ondropactivate: function (event) {
+        // add active dropzone feedback
+        event.target.classList.add('drop-active');
+    },
+    ondragenter: function (event) {
+        var draggableElement = event.relatedTarget,
+            dropzoneElement = event.target;
+
+        // feedback the possibility of a drop
+        dropzoneElement.classList.add('drop-target');
+        draggableElement.classList.add('can-drop');
+    },
+    ondragleave: function (event) {
+        // remove the drop feedback style
+        event.target.classList.remove('drop-target');
+        event.relatedTarget.classList.remove('can-drop');
+    },
+    ondrop: function (event) {
+        $("#video-red-inner").trigger("pause");
+        $("#video-red-inner").removeClass("chosen");
+        $("#video-green-inner").addClass("chosen");
+        $("#video-green-inner").trigger("play");
+        $("#video-red-inner").load();
+        $(".can-drop").removeAttr('data-x');
+        $(".can-drop").removeAttr('data-y');
+        $(".can-drop").css("transform", "");
+    },
+    ondropdeactivate: function (event) {
+        // remove active dropzone feedback
+        event.target.classList.remove('drop-active');
+        event.target.classList.remove('drop-target');
+    }
 });
 
-$(".CTA a").click(function () {
+$(".first-scene video").on("ended", function () {
     setTimeout(function () {
-        $(".CTA").css("visibility", "hidden");
+        $(".first-scene").addClass("fly-up");
     }, 500);
-    setTimeout(function () {
-        $(".inner-line").removeClass("go-up");
-        $(".draggable").removeClass("fade-away");
-        $(".mid-text").removeClass("fade-away");
-        $(".first-dropzone").removeClass("fade-away");
-        $(".second-dropzone").removeClass("fade-away");
-        $(".CTA").removeClass("show");
-    }, 800);
 });
 
-$(".left-side-effect").click(function () {
-    $(".light-video").trigger("pause");
+$(".first-scene video.dark-video").on("ended", function () {
+    $("#video-red-inner").addClass("chosen");
     setTimeout(function () {
-        $(".left-side-pic").removeClass("show");
-        $(".right-side-pic").addClass("visible");
-    }, 300);
-    setTimeout(function () {
-        $(".left-side-pic").removeClass("visible");
-        $(".right-side-pic").addClass("show");
-    }, 500);
-    setTimeout(function () {
-        $(".dark-video").trigger("play");
-        $(".light-video").load();
-    }, 700);
+        $("#video-red-inner").trigger("play");
+    }, 1500);
 });
 
+$(".first-scene video.light-video").on("ended", function () {
+    $("#video-green-inner").addClass("chosen");
+    setTimeout(function () {
+        $("#video-green-inner").trigger("play");
+    }, 1500);
+});
 
-$(".right-side-effect").click(function () {
-    $(".dark-video").trigger("pause");
+$(".second-scene video").on("ended", function () {
     setTimeout(function () {
-        $(".right-side-pic").removeClass("show");
-        $(".left-side-pic").addClass("visible");
-    }, 100);
-    setTimeout(function () {
-        $(".right-side-pic").removeClass("visible");
-        $(".left-side-pic").addClass("show");
-    }, 500);
-    setTimeout(function () {
-        $(".light-video").trigger("play");
-    }, 700);
-    setTimeout(function () {
-        $(".dark-video").load();
-    }, 2000);
+        $(".second-scene").addClass("fly-up");
+    }, 200);
 });
