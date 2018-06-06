@@ -335,6 +335,9 @@ $(".first-scene video").on("ended", function () {
     setTimeout(function () {
         $(".first-scene").addClass("fly-up");
     }, 50);
+    setTimeout(function () {
+        $(".back-button").addClass("show");
+    }, 500);
 });
 
 $(".first-scene video.dark-video").on("ended", function () {
@@ -362,4 +365,20 @@ $(".second-scene video").on("ended", function () {
     setTimeout(function () {
         $(".videos").removeClass("fly-up");
     }, 1000);
+});
+
+
+$(".back-button span").click(function () {
+    $(".back-button").removeClass("show");
+    $(".first-scene .draggable").removeClass("fade-away");
+    $(".second-dropzone").removeClass("fade-away");
+    $(".first-dropzone").removeClass("fade-away");
+    $("video").removeClass("gray-out");
+    $(".first-scene").removeClass("fly-up");
+    $("video").trigger("pause");
+    setTimeout(function () {
+        $(".videos video").removeClass("chosen");
+        $(".videos").removeClass("fly-up");
+    }, 1000);
+
 });
