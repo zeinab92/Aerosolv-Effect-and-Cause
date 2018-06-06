@@ -321,9 +321,10 @@ img {
     position: absolute;
     max-width: 430px;
     width: 100%;
-    height: 90%;
     margin: auto;
     right: 0;
+    margin-top: 10px;
+    height: 88.5%;
     left: 0;
     top: 0;
     opacity: 0;
