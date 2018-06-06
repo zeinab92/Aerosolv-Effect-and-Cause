@@ -393,7 +393,7 @@ img {
 }
 
 .more-info.clicked .slide-out {
-    left: 100%;
+    left: 99%;
     opacity: 1;
 }
 
