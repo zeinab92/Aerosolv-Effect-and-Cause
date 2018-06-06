@@ -152,7 +152,7 @@ img {
     right: 0;
     height: 2px;
     width: 100%;
-    background: url(/new-assets/horizontal-border.png);
+    background: url(../new-assets/horizontal-border.png);
     background-size: cover;
     z-index: 99;
 }
