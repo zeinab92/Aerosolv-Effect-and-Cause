@@ -84,19 +84,19 @@ function dragMoveListener(event) {
     }
 
     if ((x < -80) || (x > 80)) {
-        target.style.width = "13.5%";
+        target.style.width = "14%";
     }
 
     if ((x < -90) || (x > 90)) {
-        target.style.width = "13%";
+        target.style.width = "14%";
     }
 
     if ((x < -100) || (x > 100)) {
-        target.style.width = "12.5%";
+        target.style.width = "14%";
     }
 
     if ((x < -110) || (x > 110)) {
-        target.style.width = "12%";
+        target.style.width = "14%";
     }
 }
 
@@ -288,25 +288,26 @@ interact('.system-dropzone').dropzone({
 $(".first-scene video").on("ended", function () {
     setTimeout(function () {
         $(".first-scene").addClass("fly-up");
-    }, 500);
+    }, 50);
 });
 
 $(".first-scene video.dark-video").on("ended", function () {
     $("#video-red-inner").addClass("chosen");
     setTimeout(function () {
         $("#video-red-inner").trigger("play");
-    }, 1500);
+    }, 0);
 });
 
 $(".first-scene video.light-video").on("ended", function () {
     $("#video-green-inner").addClass("chosen");
     setTimeout(function () {
         $("#video-green-inner").trigger("play");
-    }, 1500);
+    }, 0);
 });
 
 $(".second-scene video").on("ended", function () {
     setTimeout(function () {
         $(".second-scene").addClass("fly-up");
+        $(".third-scene").addClass("fly-up");
     }, 200);
 });
