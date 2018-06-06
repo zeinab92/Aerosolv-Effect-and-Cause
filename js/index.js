@@ -285,6 +285,52 @@ interact('.system-dropzone').dropzone({
     }
 });
 
+
+interact('.system-dropzone-two').dropzone({
+    // only accept elements matching this CSS selector
+    accept: '.drag-drop',
+
+    // Require a 30% element overlap for a drop to be possible
+    overlap: 0.30,
+
+    // listen for drop related events:
+
+    ondropactivate: function (event) {
+        // add active dropzone feedback
+        event.target.classList.add('drop-active');
+    },
+    ondragenter: function (event) {
+        var draggableElement = event.relatedTarget,
+            dropzoneElement = event.target;
+
+        // feedback the possibility of a drop
+        dropzoneElement.classList.add('drop-target');
+        draggableElement.classList.add('can-drop');
+    },
+    ondragleave: function (event) {
+        // remove the drop feedback style
+        event.target.classList.remove('drop-target');
+        event.relatedTarget.classList.remove('can-drop');
+    },
+    ondrop: function (event) {
+        setTimeout(function () {
+            $("#video-red-inner").trigger("pause");
+            $("#video-red-inner").removeClass("chosen");
+            $("#video-green-inner").addClass("chosen");
+            $("#video-green-inner").trigger("play");
+            $("#video-red-inner").load();
+            $(".can-drop").removeAttr('data-x');
+            $(".can-drop").removeAttr('data-y');
+            $(".can-drop").css("transform", "");
+        }, 1000);
+    },
+    ondropdeactivate: function (event) {
+        // remove active dropzone feedback
+        event.target.classList.remove('drop-active');
+        event.target.classList.remove('drop-target');
+    }
+});
+
 $(".first-scene video").on("ended", function () {
     setTimeout(function () {
         $(".first-scene").addClass("fly-up");
@@ -307,7 +353,13 @@ $(".first-scene video.light-video").on("ended", function () {
 
 $(".second-scene video").on("ended", function () {
     setTimeout(function () {
-        $(".second-scene").addClass("fly-up");
+        $(".videos").addClass("fly-up");
         $(".third-scene").addClass("fly-up");
     }, 200);
+    setTimeout(function () {
+        $(".videos video").removeClass("chosen");
+    }, 1000);
+    setTimeout(function () {
+        $(".videos").removeClass("fly-up");
+    }, 1000);
 });
