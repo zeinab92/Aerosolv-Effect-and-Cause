@@ -336,7 +336,8 @@ $(".first-scene video").on("ended", function () {
         $(".first-scene").addClass("fly-up");
     }, 50);
     setTimeout(function () {
-        $(".back-button").addClass("show");
+        //        $(".back-button").addClass("show");
+        $(".more-info").addClass("show");
     }, 1500);
 });
 
@@ -382,4 +383,14 @@ $(".back-button span").click(function () {
         $(".videos").removeClass("fly-up");
     }, 1000);
 
+});
+
+$(".more-info span").click(function () {
+    $("video").trigger("pause");
+    $(".more-info").addClass("clicked");
+});
+
+$(".more-info i").click(function () {
+    $("video.chosen").trigger("play");
+    $(".more-info").removeClass("clicked");
 });

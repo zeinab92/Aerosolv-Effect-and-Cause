@@ -20,6 +20,7 @@ img {
     max-width: 430px;
     margin: 10px auto;
     overflow: hidden;
+    z-index: 99999999999999;
 }
 
 @media all and (max-height: 600px) {
@@ -315,7 +316,8 @@ img {
     top: -600%;
 }
 
-.back-button {
+.back-button,
+.more-info {
     position: absolute;
     max-width: 430px;
     width: 100%;
@@ -344,6 +346,62 @@ img {
     z-index: 99999;
 }
 
-.back-button.show {
+.back-button.show,
+.more-info.show {
     opacity: 1;
+}
+
+.more-info span {
+    position: absolute;
+    left: 100%;
+    padding-top: 10px;
+    top: 50%;
+    font-size: 22px;
+    padding-left: 10px;
+    z-index: 999999999999;
+    color: #fff;
+    width: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.more-info span:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 70%;
+    border-top: 20px solid #636 !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom: 25px solid #636 !important;
+    border-left: 25px solid #636 !important;
+    border-right: 25px solid #636 !important;
+}
+
+.more-info .slide-out {
+    position: absolute;
+    z-index: 9;
+    top: 40%;
+    width: 85%;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    opacity: 0;
+    left: 0%;
+    z-index: 9999999999;
+}
+
+.more-info.clicked .slide-out {
+    left: 100%;
+    opacity: 1;
+}
+
+.slide-out i {
+    position: absolute;
+    top: 5px;
+    color: #636;
+    font-size: 25px;
+    right: 5px;
+    cursor: pointer;
 }
