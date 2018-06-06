@@ -358,6 +358,7 @@ $(".second-scene video").on("ended", function () {
     setTimeout(function () {
         $(".videos").addClass("fly-up");
         $(".third-scene").addClass("fly-up");
+        $(".back-button").removeClass("show");
     }, 200);
     setTimeout(function () {
         $(".videos video").removeClass("chosen");
