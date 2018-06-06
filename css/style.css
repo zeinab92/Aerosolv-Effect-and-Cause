@@ -20,7 +20,7 @@ img {
     max-width: 430px;
     margin: 10px auto;
     overflow: hidden;
-    /*    z-index: 99999999999999;*/
+    z-index: 9;
 }
 
 @media all and (max-height: 600px) {
@@ -309,7 +309,7 @@ img {
 }
 
 .third-scene.fly-up {
-    top: 0%;
+    top: 1%;
 }
 
 .videos.fly-up {
@@ -327,7 +327,7 @@ img {
     height: 88.5%;
     left: 0;
     top: 0;
-    max-height: 725px;
+    max-height: 730px;
     opacity: 0;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
@@ -363,7 +363,6 @@ img {
     top: 50%;
     font-size: 22px;
     padding-left: 10px;
-
     color: #fff;
     width: 50px;
     font-weight: bold;
