@@ -337,7 +337,7 @@ $(".first-scene video").on("ended", function () {
     }, 50);
     setTimeout(function () {
         $(".back-button").addClass("show");
-    }, 500);
+    }, 1500);
 });
 
 $(".first-scene video.dark-video").on("ended", function () {
