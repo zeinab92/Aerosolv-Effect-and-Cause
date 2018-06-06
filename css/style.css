@@ -327,6 +327,7 @@ img {
     height: 88.5%;
     left: 0;
     top: 0;
+    max-height: 725px;
     opacity: 0;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
