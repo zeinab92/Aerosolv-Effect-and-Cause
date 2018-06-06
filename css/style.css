@@ -37,6 +37,7 @@ img {
     display: -ms-inline-flexbox;
     display: inline-flex;
     z-index: 99;
+    left: 0;
 }
 
 .dropzone {
@@ -145,6 +146,8 @@ img {
     position: absolute;
     width: 100%;
     height: 100%;
+    left: 0;
+    top: 0;
 }
 
 .horizontal-top-line {
