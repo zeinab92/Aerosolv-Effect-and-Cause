@@ -20,7 +20,7 @@ img {
     max-width: 430px;
     margin: 10px auto;
     overflow: hidden;
-    z-index: 99999999999999;
+    /*    z-index: 99999999999999;*/
 }
 
 @media all and (max-height: 600px) {
@@ -329,6 +329,8 @@ img {
     opacity: 0;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.75);
 }
 
 .back-button span {
@@ -349,6 +351,7 @@ img {
 .back-button.show,
 .more-info.show {
     opacity: 1;
+    visibility: visible;
 }
 
 .more-info span {
@@ -358,7 +361,7 @@ img {
     top: 50%;
     font-size: 22px;
     padding-left: 10px;
-    z-index: 999999999999;
+
     color: #fff;
     width: 50px;
     font-weight: bold;
@@ -384,17 +387,23 @@ img {
     position: absolute;
     z-index: 9;
     top: 40%;
-    width: 85%;
+    width: 90%;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
     opacity: 0;
-    left: 0%;
+    right: 0;
+    left: 0;
+    margin: auto;
     z-index: 9999999999;
 }
 
 .more-info.clicked .slide-out {
-    left: 99%;
+    /*    left: 99%;*/
     opacity: 1;
+}
+
+.clicked {
+    z-index: 999999999999;
 }
 
 .slide-out i {
