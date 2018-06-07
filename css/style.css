@@ -396,11 +396,13 @@ img {
     left: 0;
     margin: auto;
     z-index: 9999999999;
+    visibility: hidden;
 }
 
 .more-info.clicked .slide-out {
     /*    left: 99%;*/
     opacity: 1;
+    visibility: visible;
 }
 
 .clicked {
