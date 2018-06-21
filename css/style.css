@@ -7,6 +7,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+    overflow: hidden;
+}
+
 .no-sup-msg {
     display: none;
 }
@@ -30,7 +34,7 @@ img {
 }
 
 @media all and (max-width: 500px) {
-    .wrapper {
+    .wrapper, .back-button, .more-info {
         display: none;
     }
 }
@@ -237,7 +241,6 @@ img {
     visibility: hidden;
     position: absolute;
     top: 0;
-    /*    z-index: 99;*/
 }
 
 .videos video.chosen {
@@ -400,7 +403,6 @@ img {
 }
 
 .more-info.clicked .slide-out {
-    /*    left: 99%;*/
     opacity: 1;
     visibility: visible;
 }
